@@ -4,7 +4,7 @@ export default defineConfig({
   testDir: "./test",
   reporter: [
     ["list"],
-    [
+    ['html', { outputFolder: './playwright-report', open: 'never' }],
       "allure-playwright",
       {
         resultsDir: "./allure-results",
@@ -13,7 +13,6 @@ export default defineConfig({
         },
       },
     ],
-  ],
   projects: [
     {
       name: "chromium",
