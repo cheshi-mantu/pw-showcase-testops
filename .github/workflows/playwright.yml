@@ -20,11 +20,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    
     - uses: actions/setup-node@v4
       with:
         node-version: '21'
+        cache: 'npm'  # This caches node_modules automatically
+    
+    - name: Cache Playwright browsers
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/ms-playwright
+        key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-playwright-
+    
     - name: Install dependencies
-      run: npm install
+      run: npm ci  # Use npm ci for faster, reliable installs in CI
+    
     - name: install and configure allurectl
       uses: allure-framework/setup-allurectl@v1.0.0
       with:
@@ -32,10 +44,13 @@ jobs:
         allure-token: ${{ secrets.ALLURE_TOKEN }}
         allure-project-id: ${{ secrets.ALLURE_PROJECT_ID }}
         allurectl-version: 2.17.0
+    
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+    
     - name: Run Playwright tests and upload to Allure TestOps
       run: allurectl watch -- npx playwright test
+    
     - uses: actions/upload-artifact@v4
       if: always()
       with:
