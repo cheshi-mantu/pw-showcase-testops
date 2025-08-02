@@ -1,13 +1,12 @@
 const { test, expect } = require("@playwright/test");
-// const { allure } = require("allure-playwright");
-const allure = require("allure-js-commons");
+const { allure } = require("allure-playwright");
 
-const attachJiraIssue = (val) => {
-  allure.label("jira", val);
+const attachJiraIssue = async (val) => {
+  await allure.label("jira", val);
 };
 
-const attachMicroservice = (val) => {
-  allure.label("msrv", val);
+const attachMicroservice = async (val) => {
+  await allure.label("msrv", val);
 };
 
 const isTimeToThrow = () => {
