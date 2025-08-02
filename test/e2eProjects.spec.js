@@ -18,20 +18,20 @@ test.describe("Add epic metadata", () => {
   });
 
   test("Authenticated user must be able to create a new project", async () => {
-    allure.tags("web", "critical", "regress");
-    await allure.story("Managing support requests with type Issue");
+    await allure.story("Authenticted user can manage projects");
+    await allure.tags("web", "critical", "regress");
     await attachJiraIssue("AD-5");
-    await attachMicroservice("Support");
+    await attachMicroservice("testops");
     await authorize();
-    await createNewEntity("issue");
+    await createNewEntity("Project");
   });
 
   test("Authenticated and properly authorized user must be able to delete an existing project", async () => {
-    allure.tags("web", "regress");
-    attachJiraIssue("AD-6");
-    allure.story("Managing support requests with type Issue");
-    attachMicroservice("Support");
-    await deleteNewEntity("issue");
+    await allure.story("Authenticted user can manage projects");
+    await allure.tags("web", "regress");
+    await attachJiraIssue("AD-6");
+    await attachMicroservice("testops");
     await authorize();
+    await deleteNewEntity("Project");
   });
 });

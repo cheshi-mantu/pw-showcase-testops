@@ -50,45 +50,45 @@ const authorize = async () =>
 
 const createNewEntity = async (entityName) =>
   await test.step(`Create new ${entityName}`, async () => {
-    const issuesList = [];
+    let statusOfSomething = 'good';
     await expect(
-      issuesList,
-      `check ${entityName} count before creation`
-    ).toHaveLength(0);
+      statusOfSomething,
+      `check ${entityName} does not exist`
+    ).toBe('good');
     await test.step(`Go to ${entityName} page`, async () => {
       isTimeToThrow();
     });
     await test.step(`Click 'New ${entityName}' button`, async () => {});
-    await test.step(`Enter ${entityName} Info`, async () => {
+    await test.step(`Enter ${entityName} name`, async () => {
       isTimeToThrow();
     });
-    await test.step(`Confirm new ${entityName} creation`, async () => {
-      issuesList.push({ name: "New issue", status: "open" });
+    await test.step(`Check new ${entityName} creation`, async () => {
+      statusOfSomething = getStatus(1, 10);  
     });
-    await expect(
-      issuesList,
-      `check if ${entityName} list contain new ${entityName}`
-    ).toContainEqual({ name: "New issue", status: "open" });
+    await expect(statusOfSomething,`check if ${entityName} exists`).toBe("exists");
   });
 
 const deleteNewEntity = async (entityName) =>
-  await test.step(`Close ${entityName}`, async () => {
-    const issuesList = [{ name: "New issue", status: "open" }];
-    await test.step(`Go to ${entityName} page`, async () => {
+  await test.step(`Delete ${entityName}`, async () => {
+    let statusOfSomething = "exists";
+    await test.step(`Go to ${entityName} configuration`, async () => {
       isTimeToThrow();
     });
-    await test.step(`Open new ${entityName} page`, async () => {});
-    await expect(
-      issuesList[0].status,
-      `Check ${entityName} status before closing`
-    ).toBe("open");
-    await test.step(`Click '${entityName}' button`, async () => {});
-    issuesList[0].status = "closed";
-    await expect(
-      issuesList[0].status,
-      `Check ${entityName} status after closing`
-    ).toBe("closed");
+    await test.step(`Go to ${entityName} General section`, async () => {
+      isTimeToThrow();
+    });
+    await test.step(`Click delete ${entityName} button`, async () => {});
+    await test.step(`Click confirm deletetion of ${entityName} button`, async () => {});
+    await test.step(`Check ${entityName} deletion`, async () => {
+      statusOfSomething = getStatus(10, 10);
+    });
+    await expect(statusOfSomething,`check if ${entityName} exists`).toBe("absent");
   });
+
+const getStatus = (min, max) => {
+  const random = Math.random() * 10; // Generate random number from 0 to 10
+  return random >= min && random <= max ? 'exists' : 'absent';
+};
 
 module.exports = {
   attachJiraIssue,
@@ -96,4 +96,5 @@ module.exports = {
   authorize,
   createNewEntity,
   deleteNewEntity,
+  getStatus,
 };
