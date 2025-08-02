@@ -9,6 +9,11 @@ on:
       ALLURE_USERNAME:
         description: "ALLURE_USERNAME service parameter. Leave blank"
         required: false
+
+env:
+  ALLURE_RESULTS: "build/allure-results"
+  ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
+
 jobs:
   test:
     timeout-minutes: 60
@@ -29,9 +34,8 @@ jobs:
         allurectl-version: 2.17.0
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-
-    - name: Run Playwright tests
-      run: npx playwright test
+    - name: Run Playwright tests and upload to Allure TestOps
+      run: allurectl watch -- npx playwright test
     - uses: actions/upload-artifact@v4
       if: always()
       with:
