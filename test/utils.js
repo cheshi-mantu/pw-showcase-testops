@@ -84,6 +84,23 @@ const deleteNewEntity = async (entityName) =>
     await expect(statusOfSomething,`check if ${entityName} exists`).toBe("absent");
   });
 
+  const updateEntity = async (entityName) =>
+  await test.step(`Update ${entityName}`, async () => {
+    let statusOfSomething = "exists";
+    await test.step(`Go to ${entityName} configuration`, async () => {
+      // isTimeToThrow();
+    });
+    await test.step(`Go to ${entityName} general section`, async () => {
+      // isTimeToThrow();
+    });
+    await test.step(`Click update ${entityName} button`, async () => {});
+    await test.step(`Click confirm update of ${entityName} button`, async () => {});
+    await test.step(`Check ${entityName} is updated`, async () => {
+      statusOfSomething = getStatus(10, 10);
+    });
+    await expect(statusOfSomething,`check if ${entityName} exists`).toBe("absent");
+  });
+
 const getStatus = (min, max) => {
   const random = Math.random() * 10; // Generate random number from 0 to 10
   return random >= min && random <= max ? 'exists' : 'absent';
@@ -95,5 +112,6 @@ module.exports = {
   authorize,
   createNewEntity,
   deleteNewEntity,
+  updateEntity,
   getStatus,
 };

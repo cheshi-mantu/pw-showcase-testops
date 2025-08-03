@@ -7,6 +7,7 @@ const {
   authorize,
   createNewEntity,
   deleteNewEntity,
+  updateEntity,
 } = require("./utils");
 
 
@@ -39,4 +40,17 @@ test("Authenticated and properly authorized user must be able to delete an exist
   await allure.owner("bugsbunny");
   await authorize();
   await deleteNewEntity("Project");
+});
+
+test("Authenticated and properly authorized user must be able to update an existing project", async () => {
+  await allure.epic("Projects");
+  await allure.feature("Managing Projects");
+  await allure.story("Authenticated user can manage projects");
+  await allure.tags("web", "regress");
+  await attachJiraIssue("AD-6");
+  await attachMicroservice("testops");
+  await allure.layer("e2e");
+  await allure.owner("bugsbunny");
+  await authorize();
+  await updateEntity("Project");
 });
