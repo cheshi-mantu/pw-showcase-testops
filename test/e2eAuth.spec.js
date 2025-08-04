@@ -29,7 +29,7 @@ test("Login Form - Valid Credentials @allure.id:14542", async() => {
   });
   await allure.step("Click Continue button", async () => {
       await allure.step("Expected Result", async () => {
-          await allure.step("User is redirected to the dashboard", async () => {});
+          await allure.step("User is redirected to the dashboard.", async () => {});
       });
   });
 });
