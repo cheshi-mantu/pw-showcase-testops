@@ -33,3 +33,21 @@ test("Login Form - Valid Credentials @allure.id:14542", async() => {
       });
   });
 });
+
+test("Login Form - Invalid Credentials @allure.id:14544", async() => {
+  await allure.epic("Authentication");
+  await allure.feature("Built-in authentication");
+  await allure.story("Login form");
+  await allure.label("jira", "AD-1");
+  await allure.tags("web", "regress", "critical");
+  await allure.step("Enter invalid username and password", async () => {
+      await allure.step("Expected Result", async () => {
+          await allure.step("User sees an error message", async () => {});
+      });
+  });
+  await allure.step("Click Continue button", async () => {
+      await allure.step("Expected Result", async () => {
+          await allure.step("User remains on the login page", async () => {});
+      });
+  });
+});
