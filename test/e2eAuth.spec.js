@@ -21,7 +21,8 @@ test("Login Form - Valid Credentials @allure.id:14542", async() => {
   await allure.tags("web", "regress", "smoke");
   await allure.feature("Built-in authentication");
   await allure.story("Login form");
-  await allure.label("jira", "AD-1");
+  await attachJiraIssue("AD-1");
+  await attachMicroservice("testops");
   await allure.step("Enter valid username and password", async () => {
       await allure.step("Expected Result", async () => {
           await allure.step("User is logged in successfully", async () => {});
@@ -38,7 +39,8 @@ test("Login Form - Invalid Credentials @allure.id:14544", async() => {
   await allure.epic("Authentication");
   await allure.feature("Built-in authentication");
   await allure.story("Login form");
-  await allure.label("jira", "AD-1");
+  await attachJiraIssue("AD-1");
+  await attachMicroservice("testops");
   await allure.tags("web", "regress", "critical");
   await allure.step("Enter invalid username and password", async () => {
       await allure.step("Expected Result", async () => {
