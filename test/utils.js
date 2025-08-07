@@ -12,7 +12,7 @@ const attachMicroservice = async (val) => {
 const isTimeToThrow = () => {
   var failing = Math.random();
 
-  if (failing > 0.91 && failing <= 0.92) {
+  if (failing > 0.91 && failing < 0.92) {
     throw new Error("net::ERR_CONNECTION_REFUSED");
   }
   if (failing > 0.94 && failing < 0.95) {
