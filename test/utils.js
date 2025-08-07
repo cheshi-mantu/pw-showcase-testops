@@ -79,7 +79,7 @@ const deleteNewEntity = async (entityName) =>
     await test.step(`Click delete ${entityName} button`, async () => {});
     await test.step(`Click confirm deletetion of ${entityName} button`, async () => {});
     await test.step(`Check ${entityName} deletion`, async () => {
-      statusOfSomething = getStatus(10, 10);
+      statusOfSomething = getStatus(5, 5);
     });
     await expect(statusOfSomething,`check if ${entityName} exists`).toBe("absent");
   });
@@ -96,7 +96,7 @@ const deleteNewEntity = async (entityName) =>
     await test.step(`Click update ${entityName} button`, async () => {});
     await test.step(`Click confirm update of ${entityName} button`, async () => {});
     await test.step(`Check ${entityName} is updated`, async () => {
-      statusOfSomething = getStatus(10, 10);
+      statusOfSomething = getStatus(5, 5);
     });
     await expect(statusOfSomething,`check if ${entityName} exists`).toBe("absent");
   });
