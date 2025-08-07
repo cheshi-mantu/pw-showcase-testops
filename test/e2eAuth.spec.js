@@ -53,3 +53,21 @@ test("Login Form - Invalid Credentials @allure.id:14544", async() => {
       });
   });
 });
+
+test("Login Form - Empty Fields @allure.id:14547 @critical @regress @smoke", async() => {
+  await allure.epic("Authentication");
+  await allure.feature("Built-in authentication");
+  await allure.story("Login form");
+  await attachJiraIssue("AD-1");
+  await attachMicroservice("testops");
+  await allure.step("Leave username and password fields empty", async () => {
+      await allure.step("Expected Result", async () => {
+          await allure.step("User sees a validation error message", async () => {});
+      });
+  });
+  await allure.step("Click Continue button", async () => {
+      await allure.step("Expected Result", async () => {
+          await allure.step("User remains on the login page", async () => {});
+      });
+  });
+});
