@@ -26,14 +26,17 @@ on:
 env:
   ALLURE_RESULTS: "./allure-results"
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
+  GH_BRANCH: ${{ github.ref_name }}
+  GH_BUILD_NUMBER: ${{ github.build_number }}
+  GH_WORKFLOW_NAME: ${{ github.workflow }}
+  ALLURE_LAUNCH_NAME: "pw gh ${GH_WORKFLOW_NAME} ${GH_BRANCH} ${GH_BUILD_NUMBER}"
+  ALLURE_LAUNCH_TAGS: "${GH_BRANCH}, playwright, js, github-actions"
+
 
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    env:
-      ALLURE_LAUNCH_NAME: "pw gh ${{ github.ref_name }} ${{ github.build_number }}"
-      ALLURE_LAUNCH_TAGS: "${{ github.github.ref_name }}"
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
