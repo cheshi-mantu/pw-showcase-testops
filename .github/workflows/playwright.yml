@@ -26,8 +26,8 @@ on:
 env:
   ALLURE_RESULTS: "./allure-results"
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
-  ALLURE_LAUNCH_NAME: "pw gh ${{ github.ref_name }} ${{ github.build_number }}"
-  ALLURE_LAUNCH_TAGS: "${GITHUB_REF_NAME}"
+  ALLURE_LAUNCH_NAME: "pw gh ${{ github.GITHUB_REF_NAME }} ${{ github.GITHUB_BUILD_NUMBER }}"
+  ALLURE_LAUNCH_TAGS: "${{ github.GITHUB_REF_NAME }}"
 
 jobs:
   test:
