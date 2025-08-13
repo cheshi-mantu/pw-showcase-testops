@@ -55,7 +55,7 @@ test("Authenticated and properly authorized user must be able to update an exist
   await updateEntity("Project");
 });
 
-test("Test case name cannot be longer than 255 characters", async () => {
+test("Project name cannot be longer than 255 characters", async () => {
   await allure.epic("Projects");
   await allure.feature("Managing Projects");
   await allure.story("Validation of project name length");
