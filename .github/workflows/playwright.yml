@@ -29,7 +29,7 @@ env:
   GH_BRANCH: ${{ github.ref_name }}
   GH_BUILD_NUMBER: ${{ github.run_id }}
   GH_WORKFLOW_NAME: ${{ github.workflow }}
-  GH_WORKFLOW_SHA: ${{ github.workflow_sha }}
+  GH_WORKFLOW_SHA: $GHITHUB_WORKFLOW_SHA
   ALLURE_LAUNCH_NAME: "pw gh ${GH_WORKFLOW_NAME} ${GH_BRANCH} ${GH_BUILD_NUMBER} ${GH_WORKFLOW_SHA}"
   ALLURE_LAUNCH_TAGS: "${GH_BRANCH}, playwright, js, github-actions"
 
