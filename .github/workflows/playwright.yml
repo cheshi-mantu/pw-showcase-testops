@@ -26,16 +26,16 @@ on:
 env:
   ALLURE_RESULTS: "./allure-results"
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
-  ALLURE_LAUNCH_NAME: "pw gh ${{ github.ref_name }} ${{ github.build_number }}"
-  ALLURE_LAUNCH_TAGS: "${{ github.github.ref_name }}"
 
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      ALLURE_LAUNCH_NAME: "pw gh ${{ github.ref_name }} ${{ github.build_number }}"
+      ALLURE_LAUNCH_TAGS: "${{ github.github.ref_name }}"
     steps:
     - uses: actions/checkout@v4
-    
     - uses: actions/setup-node@v4
       with:
         node-version: '21'
