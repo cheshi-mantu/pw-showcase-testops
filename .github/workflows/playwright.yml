@@ -27,12 +27,8 @@ env:
   ALLURE_RESULTS: "./allure-results"
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
   GH_BRANCH: ${{ github.ref_name }}
-  GH_BUILD_NUMBER: ${{ github.run_id }}
-  GH_WORKFLOW_NAME: ${{ github.workflow }}
-  GH_WORKFLOW_SHA: $GHITHUB_WORKFLOW_SHA
-  ALLURE_LAUNCH_NAME: "pw gh ${GH_WORKFLOW_NAME} ${GH_BRANCH} ${GH_BUILD_NUMBER} ${GH_WORKFLOW_SHA}"
-  ALLURE_LAUNCH_TAGS: "${GH_BRANCH}, playwright, js, github-actions"
-
+  GH_ACTOR: ${{ github.actor }}
+  ALLURE_LAUNCH_TAGS: "playwright, js, github-actions, ${{ github.actor }}"
 
 jobs:
   test:
