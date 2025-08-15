@@ -27,18 +27,24 @@ const isTimeToThrow = () => {
 
 const authorize = async () =>
   await test.step("Authorize", async () => {
+    await delay(300);
     let status = "anonymous";
     await expect(status, "expect status to be anonymous before login").toBe(
       "anonymous"
     );
     await test.step("Go to login page", async () => {
+      await delay(200);
       isTimeToThrow();
     });
     await test.step("Enter Login", async () => {
+      await delay(500);
       isTimeToThrow();
     });
-    await test.step("Enter Password", async () => {});
+    await test.step("Enter Password", async () => {
+      await delay(100);
+    });
     await test.step("Click Continue", async () => {
+      await delay(100);
       isTimeToThrow();
     });
     status = "authorized";
@@ -49,19 +55,25 @@ const authorize = async () =>
 
 const createNewEntity = async (entityName) =>
   await test.step(`Create new ${entityName}`, async () => {
+    await delay(100);
     let statusOfSomething = 'good';
     await expect(
       statusOfSomething,
       `check ${entityName} does not exist`
     ).toBe('good');
     await test.step(`Go to ${entityName} page`, async () => {
+      await delay(100);
       isTimeToThrow();
     });
-    await test.step(`Click 'New ${entityName}' button`, async () => {});
+    await test.step(`Click 'New ${entityName}' button`, async () => {
+      await delay(100);
+    });
     await test.step(`Enter ${entityName} name`, async () => {
+      await delay(100);
       isTimeToThrow();
     });
     await test.step(`Check new ${entityName} creation`, async () => {
+      await delay(100);
       statusOfSomething = getStatus(1, 10);  
     });
     await expect(statusOfSomething,`check if ${entityName} exists`).toBe("exists");
@@ -69,16 +81,24 @@ const createNewEntity = async (entityName) =>
 
 const deleteNewEntity = async (entityName) =>
   await test.step(`Delete ${entityName}`, async () => {
+    await delay(100);
     let statusOfSomething = "exists";
     await test.step(`Go to ${entityName} configuration`, async () => {
+      await delay(100);
       isTimeToThrow();
     });
     await test.step(`Go to ${entityName} General section`, async () => {
+      await delay(100);
       isTimeToThrow();
     });
-    await test.step(`Click delete ${entityName} button`, async () => {});
-    await test.step(`Click confirm deletetion of ${entityName} button`, async () => {});
+    await test.step(`Click delete ${entityName} button`, async () => {
+      await delay(100);
+    });
+    await test.step(`Click confirm deletetion of ${entityName} button`, async () => {
+      await delay(100);
+    });
     await test.step(`Check ${entityName} deletion`, async () => {
+      await delay(100);
       statusOfSomething = getStatus(5, 5);
     });
     await expect(statusOfSomething,`check if ${entityName} exists`).toBe("absent");
@@ -86,16 +106,24 @@ const deleteNewEntity = async (entityName) =>
 
   const updateEntity = async (entityName) =>
   await test.step(`Update ${entityName}`, async () => {
+    await delay(100);
     let statusOfSomething = "exists";
     await test.step(`Go to ${entityName} configuration`, async () => {
+      await delay(100);
       // isTimeToThrow();
     });
     await test.step(`Go to ${entityName} general section`, async () => {
+      await delay(100);
       // isTimeToThrow();
     });
-    await test.step(`Click update ${entityName} button`, async () => {});
-    await test.step(`Click confirm update of ${entityName} button`, async () => {});
+    await test.step(`Click update ${entityName} button`, async () => {
+      await delay(100);
+    });
+    await test.step(`Click confirm update of ${entityName} button`, async () => {
+      await delay(100);
+    });
     await test.step(`Check ${entityName} is updated`, async () => {
+      await delay(100);
       statusOfSomething = getStatus(5, 5);
     });
     await expect(statusOfSomething,`check if ${entityName} exists`).toBe("absent");
