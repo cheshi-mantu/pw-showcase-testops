@@ -60,7 +60,7 @@ test("Project name cannot be longer than 255 characters", async () => {
   await allure.feature("Managing Projects");
   await allure.story("Validation of project name length");
   await allure.tags("regress");
-  await attachJiraIssue("4766");
+  await attachJiraIssue("AD-4");
   await allure.layer("e2e");
   await allure.owner("bugsbunny");
   await authorize();
