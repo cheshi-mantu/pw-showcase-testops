@@ -21,6 +21,7 @@ test("Login Form - Valid Credentials @allure.id:14542", async() => {
   await allure.tags("web", "regress", "smoke");
   await allure.feature("Built-in authentication");
   await allure.story("Login form");
+  await allure.layer("e2e");
   await attachJiraIssue("AD-1");
   await attachMicroservice("testops");
   await allure.step("Enter valid username and password", async () => {
@@ -39,6 +40,7 @@ test("Login Form - Invalid Credentials @allure.id:14544", async() => {
   await allure.epic("Authentication");
   await allure.feature("Built-in authentication");
   await allure.story("Login form");
+  await allure.layer("e2e");
   await attachJiraIssue("AD-1");
   await attachMicroservice("testops");
   await allure.tags("web", "regress", "critical");
@@ -59,6 +61,7 @@ test("Login Form - Empty Fields @allure.id:14547 @critical @regress @smoke", asy
   await allure.feature("Built-in authentication");
   await allure.story("Login form");
   await attachJiraIssue("AD-1");
+  await allure.layer("e2e");
   await attachMicroservice("testops");
   await allure.step("Leave username and password fields empty", async () => {
       await allure.step("Expected Result", async () => {
