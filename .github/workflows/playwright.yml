@@ -32,6 +32,7 @@ env:
   GH_BRANCH: ${{ github.ref_name }}
   GH_ACTOR: ${{ github.actor }}
   ALLURE_LAUNCH_TAGS: "playwright, js, github-actions, ${{ github.actor }}"
+  WRIKE_TASK_ID: ${{ github.event.inputs.WRIKE_TASK_ID }}
 
 jobs:
   test:
@@ -70,7 +71,7 @@ jobs:
       run: |
         allurectl watch -- npx playwright test
         if [ -n "${WRIKE_TASK_ID}" ]; then
-          allurectl launch add-issue --current-launch --integration-id 813 --issue-keys ${{ github.event.inputs.WRIKE_TASK_ID }}
+          allurectl launch add-issue --current-launch --integration-id 813 --issue-keys ${WRIKE_TASK_ID}
         fi
     - uses: actions/upload-artifact@v4
       if: always()
