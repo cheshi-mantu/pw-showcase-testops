@@ -61,12 +61,13 @@ test("Login Form - Invalid Credentials @allure.id:14544", async() => {
   });
 });
 
-test("Login Form - Empty Fields @allure.id:14547 @critical @regress @smoke", async() => {
+test("Login Form - Empty Fields @allure.id:14547", async() => {
   await allure.epic("Authentication");
   await allure.feature("Built-in authentication");
   await allure.story("Login form");
   await attachJiraIssue("AD-1");
   await attachWrikeIssue("1730118722");
+  await allure.tags("web", "regress", "critical", "auth");
   await allure.layer("e2e");
   await allure.owner("egorivanov");
   await attachMicroservice("testops");
