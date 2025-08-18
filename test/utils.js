@@ -145,6 +145,7 @@ const getStatus = (min, max) => {
 
 module.exports = {
   attachJiraIssue,
+  attachWrikeIssue,
   attachMicroservice,
   authorize,
   createNewEntity,
