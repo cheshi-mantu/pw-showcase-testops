@@ -1,6 +1,10 @@
 const { test, expect } = require("@playwright/test");
 const { allure } = require("allure-playwright");
 
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const attachJiraIssue = async (val) => {
   await allure.label("jira", val);
 };
