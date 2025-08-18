@@ -44,6 +44,7 @@ test("Login Form - Invalid Credentials @allure.id:14544", async() => {
   await allure.story("Login form");
   await allure.layer("e2e");
   await attachJiraIssue("AD-1");
+  await attachWrikeIssue("1730118722");
   await attachMicroservice("testops");
   await allure.tags("web", "regress", "critical");
   await allure.step("Enter invalid username and password", async () => {
@@ -63,6 +64,7 @@ test("Login Form - Empty Fields @allure.id:14547 @critical @regress @smoke", asy
   await allure.feature("Built-in authentication");
   await allure.story("Login form");
   await attachJiraIssue("AD-1");
+  await attachWrikeIssue("1730118722");
   await allure.layer("e2e");
   await attachMicroservice("testops");
   await allure.step("Leave username and password fields empty", async () => {
