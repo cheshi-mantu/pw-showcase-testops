@@ -1,5 +1,7 @@
 const { test, expect } = require("@playwright/test");
-const { allure } = require("allure-playwright");
+// const { allure } = require("allure-playwright");
+const allure = require("allure-js-commons");
+
 
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -7,6 +9,10 @@ function delay(ms) {
 
 const attachJiraIssue = async (val) => {
   await allure.label("jira", val);
+};
+
+const attachWrikeIssue = async (val) => {
+  await allure.label("wrk", val);
 };
 
 const attachMicroservice = async (val) => {
