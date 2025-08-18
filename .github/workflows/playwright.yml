@@ -24,8 +24,7 @@ on:
       - 'docs/**'
       - '*.txt'
       - 'LICENSE'
-      
-      # - '.github/workflows/**'
+      - '.github/workflows/**'
 env:
   ALLURE_RESULTS: "./allure-results"
   ALLURE_JOB_RUN_ID: ${{ github.event.inputs.ALLURE_JOB_RUN_ID }}
