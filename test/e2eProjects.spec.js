@@ -22,6 +22,7 @@ test("Authenticated user must be able to create a new project", async () => {
   await allure.story("Authenticated user can manage projects");
   await allure.tags("web", "critical", "regress");
   await attachJiraIssue("AD-4");
+  await attachWrikeIssue("1730120169");
   await allure.layer("e2e");
   await allure.owner("bugsbunny");
   await attachMicroservice("testops");
@@ -35,6 +36,7 @@ test("Authenticated and properly authorized user must be able to delete an exist
   await allure.story("Authenticated user can manage projects");
   await allure.tags("web", "regress");
   await attachJiraIssue("AD-5");
+  await attachWrikeIssue("1730120182");
   await attachMicroservice("testops");
   await allure.layer("e2e");
   await allure.owner("bugsbunny");
@@ -48,6 +50,7 @@ test("Authenticated and properly authorized user must be able to update an exist
   await allure.story("Authenticated user can manage projects");
   await allure.tags("web", "regress");
   await attachJiraIssue("AD-6");
+  await attachWrikeIssue("1730120185");
   await attachMicroservice("testops");
   await allure.layer("e2e");
   await allure.owner("bugsbunny");
@@ -61,6 +64,7 @@ test("Project name cannot be longer than 255 characters @allure.id:14701", async
   await allure.story("Validation of project name length");
   await allure.tags("regress");
   await attachJiraIssue("AD-4");
+  await attachWrikeIssue("1730120169");
   await allure.layer("e2e");
   await allure.owner("bugsbunny");
   await authorize();
