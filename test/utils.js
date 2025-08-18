@@ -27,7 +27,6 @@ const isTimeToThrow = () => {
 
 const authorize = async () =>
   await test.step("Authorize", async () => {
-    await delay(300);
     let status = "anonymous";
     await expect(status, "expect status to be anonymous before login").toBe(
       "anonymous"
