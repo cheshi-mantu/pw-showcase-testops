@@ -19,7 +19,7 @@ test.beforeEach(async () => {
 
 test.afterEach(async () => {
   console.log("afterEach");
-  await allure.attachment("One small txt attachment", "Party is over, my dudes", "text/plain");
+  await allure.attachment("after each we attach text", "Party is over, my dudes", "text/plain");
 });
 
 test("Login Form - Valid Credentials @allure.id:14542", async() => {

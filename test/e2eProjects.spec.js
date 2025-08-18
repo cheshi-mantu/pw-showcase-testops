@@ -17,7 +17,7 @@ test.beforeEach(async () => {
   await allure.attachment("text attachment", "some data added to each test", "text/plain");
 });
 
-test("Authenticated user must be able to create a new project", async () => {
+test("Authenticated user must be able to create a new project @allure.id:14595", async () => {
   await allure.epic("Projects");
   await allure.feature("Managing Projects");
   await allure.story("Authenticated user can manage projects");
@@ -31,7 +31,7 @@ test("Authenticated user must be able to create a new project", async () => {
   await createNewEntity("Project");
 });
 
-test("Authenticated and properly authorized user must be able to delete an existing project", async () => {
+test("Authenticated and properly authorized user must be able to delete an existing project @allure.id:14596", async () => {
   await allure.epic("Projects");
   await allure.feature("Managing Projects");
   await allure.story("Authenticated user can manage projects");
@@ -45,7 +45,7 @@ test("Authenticated and properly authorized user must be able to delete an exist
   await deleteNewEntity("Project");
 });
 
-test("Authenticated and properly authorized user must be able to update an existing project", async () => {
+test("Authenticated and properly authorized user must be able to update an existing project @allure.id:14629", async () => {
   await allure.epic("Projects");
   await allure.feature("Managing Projects");
   await allure.story("Authenticated user can manage projects");
