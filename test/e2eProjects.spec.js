@@ -14,7 +14,7 @@ const {
 
 test.beforeEach(async () => {
   console.log("beforeEach");
-  await allure.attachment("text attachment", "some data", "text/plain");
+  await allure.attachment("text attachment", "some data added to each test", "text/plain");
 });
 
 test("Authenticated user must be able to create a new project", async () => {

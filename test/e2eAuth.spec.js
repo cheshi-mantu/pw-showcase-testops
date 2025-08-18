@@ -15,6 +15,7 @@ const {
 test.beforeEach(async () => {
   console.log("beforeEach");
   await allure.attachment("One small txt attachment", "some useless data", "text/plain");
+  await allure.owner("bugsbunny");
 });
 
 test("Login Form - Valid Credentials @allure.id:14542", async() => {
