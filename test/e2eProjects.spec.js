@@ -3,6 +3,7 @@ const allure = require("allure-js-commons");
 
 const {
   attachJiraIssue,
+  attachWrikeIssue,
   attachMicroservice,
   authorize,
   createNewEntity,
