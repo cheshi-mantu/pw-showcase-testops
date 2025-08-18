@@ -17,6 +17,12 @@ test.beforeEach(async () => {
   await allure.attachment("One small txt attachment", "some useless data", "text/plain");
 });
 
+test.afterEach(async () => {
+  console.log("afterEach");
+  await allure.attachment("One small txt attachment", "some useless data", "text/plain");
+  await allure.owner("sa-cleaner");
+});
+
 test("Login Form - Valid Credentials @allure.id:14542", async() => {
   await allure.epic("Authentication");
   await allure.tags("web", "regress", "smoke");
