@@ -22,7 +22,8 @@ test("Login Form - Valid Credentials @allure.id:14542", async() => {
   await allure.feature("Built-in authentication");
   await allure.story("Login form");
   await allure.layer("e2e");
-  await attachJiraIssue("AD-1");
+//   await attachJiraIssue("AD-1");
+  await attachWrikeIssue("1730118722");
   await attachMicroservice("testops");
   await allure.step("Enter valid username and password", async () => {
       await allure.step("Expected Result", async () => {
