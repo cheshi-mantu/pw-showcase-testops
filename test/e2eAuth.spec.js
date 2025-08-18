@@ -15,7 +15,6 @@ const {
 test.beforeEach(async () => {
   console.log("beforeEach");
   await allure.attachment("One small txt attachment", "some useless data", "text/plain");
-  await allure.owner("bugsbunny");
 });
 
 test("Login Form - Valid Credentials @allure.id:14542", async() => {
@@ -27,6 +26,7 @@ test("Login Form - Valid Credentials @allure.id:14542", async() => {
   await attachJiraIssue("AD-1");
   await attachWrikeIssue("1730118722");
   await attachMicroservice("testops");
+  await allure.owner("egorivanov");
   await allure.step("Enter valid username and password", async () => {
       await allure.step("Expected Result", async () => {
           await allure.step("User is logged in successfully", async () => {});
@@ -47,6 +47,7 @@ test("Login Form - Invalid Credentials @allure.id:14544", async() => {
   await attachJiraIssue("AD-1");
   await attachWrikeIssue("1730118722");
   await attachMicroservice("testops");
+  await allure.owner("egorivanov");
   await allure.tags("web", "regress", "critical");
   await allure.step("Enter invalid username and password", async () => {
       await allure.step("Expected Result", async () => {
@@ -67,6 +68,7 @@ test("Login Form - Empty Fields @allure.id:14547 @critical @regress @smoke", asy
   await attachJiraIssue("AD-1");
   await attachWrikeIssue("1730118722");
   await allure.layer("e2e");
+  await allure.owner("egorivanov");
   await attachMicroservice("testops");
   await allure.step("Leave username and password fields empty", async () => {
       await allure.step("Expected Result", async () => {
