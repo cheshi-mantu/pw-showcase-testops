@@ -11,8 +11,16 @@ on:
       ALLURE_USERNAME:
         description: "ALLURE_USERNAME service parameter. Leave blank"
         required: false
+      TESTS_BROWSER:
+        description: "Tests browser. Leave blank if not required"
+        required: false
+        default: "vivaldi"
+      TESTS_SYTEM_UNDER_TEST:
+        description: "Tests system under test. Leave blank if not required"
+        required: false
+        default: "https://demo.testops.cloud"
       WRIKE_TASK_ID:
-        description: "Linking launch to Wrike task. Leave blank if not required"
+        description: "Wrike Task ID. Linking launch to Wrike task. Leave blank if not required"
         required: false
   push:
     branches:
